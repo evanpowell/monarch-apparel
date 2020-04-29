@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './home.styles.scss';
 
 import Directory from '../../components/directory/directory.component';
 
-export class Homepage extends Component {
+export class HomePage extends Component {
     render() {
         return (
             <div className="homepage">
@@ -12,4 +13,4 @@ export class Homepage extends Component {
     }
 }
 
-export default Homepage;
+export default HomePage;
