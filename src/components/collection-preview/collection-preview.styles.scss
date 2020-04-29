@@ -1,0 +1,19 @@
+.collection-preview {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
+
+.collection-preview__title {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.collection-preview__list-preview {
+    display: flex;
+    justify-content: space-between;
+}
