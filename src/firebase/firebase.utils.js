@@ -2,10 +2,8 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const {FIREBASE_API_KEY} = Process.env
-
 const config = {
-    apiKey: FIREBASE_API_KEY,
+    // apiKey: FIREBASE_API_KEY,
     authDomain: "monarch-apparel.firebaseapp.com",
     databaseURL: "https://monarch-apparel.firebaseio.com",
     projectId: "monarch-apparel",
