@@ -1,0 +1,28 @@
+@import 'src/styles/abstracts/_variables';
+
+.form-container {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $color-gray--light;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid $color-gray--light;
+    }
+
+    &::before {
+        margin-right: .25em;
+    }
+
+    &::after {
+        margin-left: .25em;
+    }
+}
