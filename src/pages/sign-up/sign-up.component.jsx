@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './sign-up.styles.scss';
 
 import FormInput from '../../components/form-input/form-input.component';
+import { ReactComponent as GoogleAuthImage } from '../../assets/btn_google_light_normal_ios.svg';
+import { authenticateWithGoogle } from '../../firebase/firebase.utils';
 
 export class SignUpPage extends Component {
     constructor(props) {
@@ -30,8 +32,11 @@ export class SignUpPage extends Component {
         const { email, password } = this.state;
         return (
             <div className="form-container">
-                <div className="signup-google">
-                    <button>Sign up with Google</button>
+                <div className="signup-oauth">
+                    <button className="custom-button custom-button--oauth" onClick={authenticateWithGoogle}>
+                        <GoogleAuthImage className="google-image"/>
+                        <span className="custom-button--oauth__text">Sign up with Google</span>
+                    </button>
                 </div>
                 <div className="divider">
                     OR

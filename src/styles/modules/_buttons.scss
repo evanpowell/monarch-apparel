@@ -11,7 +11,6 @@
     font-weight: bolder;
     border: none;
     cursor: pointer;
-  
 }
 
 .custom-button--primary {
@@ -34,3 +33,15 @@
     }
 }
 
+.custom-button--oauth {
+    display: flex;
+    align-items: center;
+    background-color: $color-google-oauth;
+    color: $color-white;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.custom-button--oauth__text {
+    padding: 0 2rem;
+}
