@@ -1,0 +1,40 @@
+.form-container {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.authenticate-oauth {
+    display: flex;
+    justify-content: center;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $color-gray--light;
+    padding: 2.5rem 0;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid $color-gray--light;
+    }
+
+    &::before {
+        margin-right: .25em;
+    }
+
+    &::after {
+        margin-left: .25em;
+    }
+}
+
+.authentication-form {
+    padding-bottom: 2rem;
+}
+
+.login-link {
+    display: block;
+}

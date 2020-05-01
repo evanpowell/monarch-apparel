@@ -34,7 +34,7 @@ export class SignUpPage extends Component {
         const { email, password } = this.state;
         return (
             <div className="form-container">
-                <div className="signup-oauth">
+                <div className="authenticate-oauth">
                     <button className="custom-button custom-button--oauth" onClick={authenticateWithGoogle}>
                         <GoogleAuthImage className="google-image"/>
                         <span className="custom-button--oauth__text">Sign up with Google</span>
@@ -43,7 +43,7 @@ export class SignUpPage extends Component {
                 <div className="divider">
                     OR
                 </div>
-                <form className="signup-form" onSubmit={this.handleSubmit}>
+                <form className="authentication-form" onSubmit={this.handleSubmit}>
                     <span className="form-heading">Sign up with email and password</span>
                     <FormInput
                         id="email"
