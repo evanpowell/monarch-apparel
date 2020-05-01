@@ -20,6 +20,11 @@ export class SignUpPage extends Component {
             [name]: value
         });
     }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        
+    }
     
     render() {
         const { email, password } = this.state;
@@ -31,7 +36,7 @@ export class SignUpPage extends Component {
                 <div className="divider">
                     OR
                 </div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <span className="form-heading">Sign up with email and password</span>
                     <FormInput
                         id="email"
