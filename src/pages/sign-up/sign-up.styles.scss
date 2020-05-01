@@ -16,6 +16,7 @@
     align-items: center;
     text-align: center;
     color: $color-gray--light;
+    padding: 2.5rem 0;
 
     &::before,
     &::after {
@@ -31,4 +32,12 @@
     &::after {
         margin-left: .25em;
     }
+}
+
+.signup-form {
+    padding-bottom: 2rem;
+}
+
+.login-link {
+    display: block;
 }

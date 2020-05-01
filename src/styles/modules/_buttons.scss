@@ -40,6 +40,10 @@
     color: $color-white;
     justify-content: space-between;
     padding: 0;
+
+    &:hover {
+        background-color: $color-google-oauth--dark;
+    }
 }
 
 .custom-button--oauth__text {

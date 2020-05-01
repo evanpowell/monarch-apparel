@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './sign-up.styles.scss';
 
@@ -12,7 +13,8 @@ export class SignUpPage extends Component {
     
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            passwordConfirm: ''
         }
     }
 
@@ -41,7 +43,7 @@ export class SignUpPage extends Component {
                 <div className="divider">
                     OR
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="signup-form" onSubmit={this.handleSubmit}>
                     <span className="form-heading">Sign up with email and password</span>
                     <FormInput
                         id="email"
@@ -58,11 +60,21 @@ export class SignUpPage extends Component {
                         label="password"
                         handleChange={this.handleChange}
                         value={password} />
+                    <FormInput
+                        id="password-confirm"
+                        type="password"
+                        customClass="form-input--password"
+                        name="passwordConfirm"
+                        label="confirm password"
+                        handleChange={this.handleChange}
+                        value={password} />
                     <button className="custom-button custom-button--primary"
                         type="submit">
                             Sign up
                     </button>
                 </form>
+                <span className="alternate-authentication">Already have an account?</span>
+                <Link to="/login" className="login-link">Login</Link>
             </div>
         )
     }
