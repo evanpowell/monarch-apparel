@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 
 import FormInput from '../../components/form-input/form-input.component';
 import { ReactComponent as GoogleAuthImage } from '../../assets/btn_google_light_normal_ios.svg';
-import { authenticateWithGoogle } from '../../firebase/firebase.utils';
+import { auth, authenticateWithGoogle, maybeCreateUserProfileDocument } from '../../firebase/firebase.utils';
 
 export class SignUpPage extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
+            displayName: '',
             email: '',
             password: '',
             passwordConfirm: ''
@@ -25,13 +26,31 @@ export class SignUpPage extends Component {
         });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+
+        const { displayName, email, password } = this.state;
+        console.log(displayName);
+
+        try {
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
+            await maybeCreateUserProfileDocument(user, { displayName });
+
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                passwordConfirm: ''
+            });
+        } catch (error) {
+            console.error(error);
+        }
+
         
     }
     
     render() {
-        const { email, password } = this.state;
+        const { displayName, email, password, passwordConfirm } = this.state;
         return (
             <div className="form-container">
                 <div className="authenticate-oauth">
@@ -45,6 +64,13 @@ export class SignUpPage extends Component {
                 </div>
                 <form className="authentication-form" onSubmit={this.handleSubmit}>
                     <span className="form-heading">Sign up with email and password</span>
+                    <FormInput
+                        id="display-name"
+                        type="text"
+                        name="displayName"
+                        label="display name"
+                        handleChange={this.handleChange}
+                        value={displayName} />
                     <FormInput
                         id="email"
                         type="email"
@@ -67,7 +93,7 @@ export class SignUpPage extends Component {
                         name="passwordConfirm"
                         label="confirm password"
                         handleChange={this.handleChange}
-                        value={password} />
+                        value={passwordConfirm} />
                     <button className="custom-button custom-button--primary"
                         type="submit">
                             Sign up

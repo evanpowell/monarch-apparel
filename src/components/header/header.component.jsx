@@ -15,7 +15,7 @@ const Header = ({ currentUser }) => {
                     currentUser ? 
                     (
                         <div className={`${classes[`option`]} ${classes[`option--user`]}`}>
-                            { currentUser.displayName || currentUser.email }
+                            { currentUser.displayName }
                         </div>
                     ) :
                     null
@@ -27,12 +27,7 @@ const Header = ({ currentUser }) => {
                     CONTACT
                 </Link>
                 { currentUser ? 
-                    (
-                        <Fragment>
-                            
-                            <div className={classes[`option`]} onClick={() => auth.signOut()}>SIGN OUT</div>
-                        </Fragment>
-                    ) :
+                    <div className={classes[`option`]} onClick={() => auth.signOut()}>SIGN OUT</div> :
                     (
                         <Fragment>
                             <Link className={classes[`option`]} to="/login">

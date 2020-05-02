@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import FormInput from '../../components/form-input/form-input.component';
 import { ReactComponent as GoogleAuthImage } from '../../assets/btn_google_light_normal_ios.svg';
-import { authenticateWithGoogle } from '../../firebase/firebase.utils';
+import { auth, authenticateWithGoogle } from '../../firebase/firebase.utils';
 
 export class LoginPage extends Component {
     constructor(props) {
@@ -24,9 +24,20 @@ export class LoginPage extends Component {
         });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
         
+        const { email, password } = this.state;
+
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({
+                email: '',
+                password: ''
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     render() {

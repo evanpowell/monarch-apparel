@@ -19,33 +19,44 @@ export class App extends Component {
         }
     }
 
-    unsubscribeFromAuth = null;
+    unsubscribeFunctions = [];
 
     componentDidMount() {
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+        const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
             if (!userAuth) {
                 this.setState({
                     currentUser: null
                 });
-                
+
                 return;
             }
 
             const userRef = await maybeCreateUserProfileDocument(userAuth);
 
-            userRef.onSnapshot((snapShot) => {
+            const unsubscribeFromSnapshot = userRef.onSnapshot((snapShot) => {
+
                 this.setState({
                     currentUser: {
                         id: snapShot.id,
                         ...snapShot.data()
                     },
                 });
-            })
+            });
+
+            this.unsubscribeFunctions.push(unsubscribeFromSnapshot);
+        });
+
+        this.unsubscribeFunctions.push(unsubscribeFromAuth);
+    }
+
+    closeSubscriptions = () => {
+        this.unsubscribeFunctions.forEach(unsubscribeFunction => {
+            unsubscribeFunction();
         });
     }
 
     componentWillUnmount() {
-        this.unsubscribeFromAuth();
+        this.closeSubscriptions();
     }
     
     render() {
