@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './sign-up.styles.scss';
+// import classes from './sign-up.module.scss';
 
 import FormInput from '../../components/form-input/form-input.component';
 import { ReactComponent as GoogleAuthImage } from '../../assets/btn_google_light_normal_ios.svg';

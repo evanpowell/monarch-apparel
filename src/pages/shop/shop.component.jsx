@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './shop.styles.scss';
+import classes from './shop.module.scss';
 
 import SHOP_DATA from './shop.data';
 
@@ -17,7 +17,7 @@ export class ShopPage extends Component {
     render() {
         const { collections } = this.state;
         return (
-            <div className="shop-page">
+            <div className={classes[`shop-page`]}>
                 {
                     collections.map(({ id, ...otherCollectionProps }) => (
                         <CollectionPreview key={id} { ...otherCollectionProps }></CollectionPreview>

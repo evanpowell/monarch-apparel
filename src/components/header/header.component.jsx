@@ -3,25 +3,25 @@ import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
-import './header.styles.scss';
+import classes from './header.module.scss';
 
 const Header = () => {
     return (
-        <div className="header">
-            <Link className="logo-container" to="/">
-                <Logo className="logo" />
+        <div className={classes[`header`]}>
+            <Link className={classes[`logo-container`]} to="/">
+                <Logo />
             </Link>
-            <div className="nav-options">
-                <Link className="option" to="/shop">
+            <div className={classes[`nav-options`]}>
+                <Link className={classes[`option`]} to="/shop">
                     SHOP
                 </Link>
-                <Link className="option" to="/contact">
+                <Link className={classes[`option`]} to="/contact">
                     CONTACT
                 </Link>
-                <Link className="option" to="/login">
+                <Link className={classes[`option`]} to="/login">
                     LOGIN
                 </Link>
-                <Link className="option" to="/sign-up">
+                <Link className={classes[`option`]} to="/sign-up">
                     SIGN UP
                 </Link>
             </div>
