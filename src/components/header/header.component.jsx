@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classes from './header.module.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { auth } from '../../firebase/firebase.utils';
+import CartIcon from '../cart-icon/cart-icon.component';
 
 const Header = ({ currentUser }) => {
     return (
@@ -40,6 +41,9 @@ const Header = ({ currentUser }) => {
                         </Fragment>
                     )
                 }
+                <div className={classes[`option`]}>
+                    <CartIcon />
+                </div>
             </div>
         </div>
     )
