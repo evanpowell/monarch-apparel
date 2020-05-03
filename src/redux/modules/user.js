@@ -19,3 +19,8 @@ const userReducer = (state = initialState, action) => {
 }
 
 export default userReducer;
+
+export const setCurrentUser = (user) => ({
+    type: SET_CURRENT_USER,
+    payload: user
+});
