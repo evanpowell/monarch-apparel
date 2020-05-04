@@ -10,6 +10,11 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
                     backgroundImage: `url(${imageUrl})`
                 }}>
             </div>
+            <div className={classes[`add-to-cart`]}>
+                <button className={`custom-button custom-button--secondary`}>
+                    ADD TO CART
+                </button>
+            </div>
             <div className={classes[`collection-item__footer`]}>
                 <div className={classes[`collection-item__name`]}>{name}</div>
                 <div className={classes[`collection-item__price`]}>{price}</div>

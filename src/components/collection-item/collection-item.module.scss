@@ -4,6 +4,15 @@
     flex-direction: column;
     height: 35rem;
     align-items: center;
+    position: relative;
+
+    &:hover {
+        opacity: 0.85;
+
+        .add-to-cart {
+            display: block;
+        }
+    }
 }
 
 .collection-item__image {
@@ -12,6 +21,18 @@
     background-size: cover;
     background-position: center;
     margin-bottom: .5rem;
+}
+
+.add-to-cart {
+    display:none;
+    opacity: 0.85;
+    width: 75%;
+    position: absolute;
+    bottom: 15%;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .collection-item__footer {
