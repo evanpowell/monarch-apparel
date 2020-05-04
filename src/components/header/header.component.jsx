@@ -41,9 +41,9 @@ const Header = ({ currentUser }) => {
                         </Fragment>
                     )
                 }
-                <div className={classes[`option`]}>
+                <Link className={classes[`option`]} to ="/cart">
                     <CartIcon />
-                </div>
+                </Link>
             </div>
         </div>
     )
