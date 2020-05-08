@@ -1,10 +1,15 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import classes from './header.module.scss';
+import { createStructuredSelector } from 'reselect';
+
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
+import { userSelectors } from '../../redux/modules/user';
+
+
+import classes from './header.module.scss';
 
 const Header = ({ currentUser }) => {
     return (
@@ -49,8 +54,8 @@ const Header = ({ currentUser }) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = createStructuredSelector({
+    currentUser: userSelectors.selectCurrentUser
 });
 
 export default connect(mapStateToProps)(Header);
