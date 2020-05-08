@@ -17,8 +17,6 @@ const cartItemsReducer = (state = [], action) => {
     }
 };
 
-const reducer = combineReducers({
+export default combineReducers({
     cartItems: cartItemsReducer
 });
-
-export default reducer;
