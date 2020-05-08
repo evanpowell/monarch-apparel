@@ -3,13 +3,15 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import { auth, maybeCreateUserProfileDocument } from './firebase/firebase.utils';
+import { userActions, userSelectors } from './redux/modules/user';
+
 import Header from './components/header/header.component';
 import HomePage from './pages/home/home.component';
 import ShopPage from './pages/shop/shop.component';
 import LoginPage from './pages/login/login.component';
 import SignUpPage from './pages/sign-up/sign-up.component';
-import { auth, maybeCreateUserProfileDocument } from './firebase/firebase.utils';
-import { userActions, userSelectors } from './redux/modules/user';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 import './App.scss';
 
@@ -56,8 +58,8 @@ export class App extends Component {
             <div>
                 <Header />
                 <Switch>
-                    <Route exact path='/' component={HomePage}></Route>
-                    <Route path='/shop' component={ShopPage}></Route>
+                    <Route exact path='/' component={HomePage} />
+                    <Route path='/shop' component={ShopPage} />
                     <Route
                         path='/login'
                         render={() =>
@@ -66,7 +68,8 @@ export class App extends Component {
                             ) : (
                                 <LoginPage />
                             )
-                        }></Route>
+                        }
+                    />
                     <Route
                         path='/sign-up'
                         render={() =>
@@ -75,7 +78,9 @@ export class App extends Component {
                             ) : (
                                 <SignUpPage />
                             )
-                        }></Route>
+                        }
+                    />
+                    <Route exact path='/checkout' component={CheckoutPage} />
                 </Switch>
             </div>
         )
