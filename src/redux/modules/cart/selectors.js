@@ -4,7 +4,7 @@ const selectCart = (state) => state.cart;
 
 const selectCartItems = createSelector(
     [selectCart],
-    (cart) => cart.items
+    (cart) => cart.cartItems
 );
 
 const selectCartItemsCount = createSelector(
