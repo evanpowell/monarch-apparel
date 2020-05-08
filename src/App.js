@@ -61,6 +61,7 @@ export class App extends Component {
                     <Route exact path='/' component={HomePage} />
                     <Route path='/shop' component={ShopPage} />
                     <Route
+                        exact
                         path='/login'
                         render={() =>
                             currentUser ? (
@@ -71,6 +72,7 @@ export class App extends Component {
                         }
                     />
                     <Route
+                        exact
                         path='/sign-up'
                         render={() =>
                             currentUser ? (
