@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addCartItem } from '../../redux/modules/cart';
+import { cartActions } from '../../redux/modules/cart';
 
 import classes from './collection-item.module.scss';
 
@@ -29,7 +29,7 @@ const CollectionItem = ({ item, addCartItem }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addCartItem: (cartItem) => dispatch(addCartItem(cartItem))
+    addCartItem: (cartItem) => dispatch(cartActions.addCartItem(cartItem))
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);
