@@ -24,7 +24,7 @@ const selectCartTotalPrice = createSelector(
     (cartItems) => {
         return cartItems.reduce(
             (total, currentCartItem) => {
-                return total + currentCartItem.quantity + currentCartItem.price;
+                return total + currentCartItem.quantity * currentCartItem.price;
             },
             0
         );
