@@ -51,3 +51,10 @@
 .custom-button--oauth__text {
     padding: 0 2rem;
 }
+
+.clear-button {
+    border: none;
+    background: none;
+    font-size: inherit;
+    cursor: pointer;
+}
