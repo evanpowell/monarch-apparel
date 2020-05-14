@@ -10,7 +10,13 @@ const removeCartItem = (cartItemId) => ({
     payload: cartItemId
 });
 
+const decrementCartItem = (cartItemId) => ({
+    type: types.DECREMENT_CART_ITEM,
+    payload: cartItemId
+});
+
 export {
     addCartItem,
-    removeCartItem
-}
+    removeCartItem,
+    decrementCartItem
+};

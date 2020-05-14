@@ -15,6 +15,9 @@ const cartItemsReducer = (state = [], action) => {
         
         case types.REMOVE_CART_ITEM:
             return utils.removeItemFromCart(state, action.payload);
+
+        case types.DECREMENT_CART_ITEM:
+            return utils.decrementCartItem(state, action.payload);
             
         default:
             return state;

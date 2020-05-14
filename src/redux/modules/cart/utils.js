@@ -17,18 +17,21 @@ const addItemToCart = (cartItems, cartItemToAdd) => {
 };
 
 const removeItemFromCart = (cartItems, cartItemId) => {
-    const cartItemsCopy = [];
+    return cartItems.filter((cartItem) => cartItem.id !== cartItemId);
+};
 
-    cartItems.forEach((cartItem) => {
-        if (cartItem.id !== cartItemId) {
-            cartItemsCopy.push({ ...cartItem });
-        };
+const decrementCartItem = (cartItems, cartItemId) => {
+    return cartItems.map((cartItem) => {
+        if (cartItem.id === cartItemId) {
+            return { ...cartItem, quantity: cartItem.quantity - 1 };
+        }
+
+        return cartItem;
     });
-
-    return cartItemsCopy;
-}
+};
 
 export {
     addItemToCart,
-    removeItemFromCart
+    removeItemFromCart,
+    decrementCartItem
 };
