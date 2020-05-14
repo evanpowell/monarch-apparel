@@ -24,6 +24,11 @@
     height: 100%;
 }
 
-.checkout-item__name {
+.checkout-item__quantity-container {
+    display: flex;
+    justify-content: center;
+}
 
+.checkout-item__quantity {
+    padding: 0 1rem;
 }

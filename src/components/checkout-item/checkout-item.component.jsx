@@ -5,7 +5,7 @@ import { cartActions } from '../../redux/modules/cart';
 
 import classes from './checkout-item.module.scss';
 
-const CheckoutItem = ({ cartItem, removeCartItem }) => {
+const CheckoutItem = ({ cartItem, removeCartItem, addCartItem, decrementCartItem }) => {
     const { imageUrl, name, quantity, price, id } = cartItem;
     return (
         <div className={classes[`checkout-item`]}>
@@ -13,7 +13,23 @@ const CheckoutItem = ({ cartItem, removeCartItem }) => {
                 <img className={classes[`checkout-item__image`]} src={imageUrl} alt={name} />
             </div>
             <span className={classes[`checkout-item__content`]}>{ name }</span>
-            <span className={classes[`checkout-item__content`]}>{ quantity }</span>
+            <div className={`${classes[`checkout-item__content`]} ${classes[`checkout-item__quantity-container`]}`}>
+                <button
+                    className="clear-button"
+                    aria-label="decrease item quantity"
+                    onClick={() => decrementCartItem(id)}
+                >
+                    &#10094;
+                </button>
+                <span className={classes[`checkout-item__quantity`]}>{ quantity }</span>
+                <button
+                    className="clear-button"
+                    aria-label="increase item quantity"
+                    onClick={() => addCartItem(cartItem)}
+                >
+                    &#10095;
+                </button>
+            </div>
             <span className={classes[`checkout-item__content`]}>{ price }</span>
             <button
                 className={`${classes[`checkout-item__content`]} clear-button`}
@@ -27,7 +43,9 @@ const CheckoutItem = ({ cartItem, removeCartItem }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    removeCartItem: (cartItemId) => dispatch(cartActions.removeCartItem(cartItemId))
+    removeCartItem: (cartItemId) => dispatch(cartActions.removeCartItem(cartItemId)),
+    addCartItem: (cartItem) => dispatch(cartActions.addCartItem(cartItem)),
+    decrementCartItem: (cartItemId) => dispatch(cartActions.decrementCartItem(cartItemId))
 });
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);
