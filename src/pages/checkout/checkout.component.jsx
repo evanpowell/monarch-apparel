@@ -9,14 +9,31 @@ import classes from './checkout.module.scss';
 
 const CheckoutPage = ({ cartItems, totalPrice }) => {
     return (
-        <div>
-            CHECKOUT PAGE
+        <div className={classes[`checkout-page`]}>
+            <h1 className={classes[`checkout-title`]}>Checkout</h1>
+            <div className={classes[`checkout-header`]}>
+                <div className={classes[`checkout-header__header-block`]}>
+                    <span>Product</span>
+                </div>
+                <div className={classes[`checkout-header__header-block`]}>
+                    <span>Description</span>
+                </div>
+                <div className={classes[`checkout-header__header-block`]}>
+                    <span>Quantity</span>
+                </div>
+                <div className={classes[`checkout-header__header-block`]}>
+                    <span>Price</span>
+                </div>
+                <div className={classes[`checkout-header__header-block`]}>
+                    <span>Remove</span>
+                </div>
+            </div>
             {
                 cartItems.map((cartItem) => {
                     return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
                 })
             }
-            <div className={classes.total}>${ totalPrice }</div>
+            <div className={classes[`checkout-total`]} aria-label="checkout total price">${ totalPrice }</div>
         </div>
     )
 };

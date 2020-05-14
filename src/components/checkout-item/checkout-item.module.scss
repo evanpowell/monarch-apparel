@@ -1,3 +1,29 @@
+@import 'src/styles/abstracts/_variables';
+
 .checkout-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    min-height: 10rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $color-gray;
+}
+
+.checkout-item__content {
+    width: 23%;
+
+    &:last-child {
+        width: 8%;
+    }
+}
+
+.checkout-item__image {
+    width: 100%;
+    height: 100%;
+}
+
+.checkout-item__name {
 
 }
