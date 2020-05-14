@@ -5,6 +5,12 @@ const addCartItem = (cartItem) => ({
     payload: cartItem
 });
 
+const removeCartItem = (cartItemId) => ({
+    type: types.REMOVE_CART_ITEM,
+    payload: cartItemId
+});
+
 export {
-    addCartItem
+    addCartItem,
+    removeCartItem
 }

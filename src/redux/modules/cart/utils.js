@@ -16,6 +16,19 @@ const addItemToCart = (cartItems, cartItemToAdd) => {
     return cartItemsCopy;
 };
 
+const removeItemFromCart = (cartItems, cartItemId) => {
+    const cartItemsCopy = [];
+
+    cartItems.forEach((cartItem) => {
+        if (cartItem.id !== cartItemId) {
+            cartItemsCopy.push({ ...cartItem });
+        };
+    });
+
+    return cartItemsCopy;
+}
+
 export {
-    addItemToCart
+    addItemToCart,
+    removeItemFromCart
 };
