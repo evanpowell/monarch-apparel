@@ -7,6 +7,15 @@ import classes from './checkout-item.module.scss';
 
 const CheckoutItem = ({ cartItem, removeCartItem, addCartItem, decrementCartItem }) => {
     const { imageUrl, name, quantity, price, id } = cartItem;
+
+    const decrement = () => {
+        if (quantity <= 0) {
+            return;
+        }
+
+        decrementCartItem(id);
+    };
+
     return (
         <div className={classes[`checkout-item`]}>
             <div className={classes[`checkout-item__content`]}>
@@ -15,9 +24,12 @@ const CheckoutItem = ({ cartItem, removeCartItem, addCartItem, decrementCartItem
             <span className={classes[`checkout-item__content`]}>{ name }</span>
             <div className={`${classes[`checkout-item__content`]} ${classes[`checkout-item__quantity-container`]}`}>
                 <button
+                    style={{
+                        opacity: quantity > 0 ? '1' : '0'
+                    }}
                     className="clear-button"
                     aria-label="decrease item quantity"
-                    onClick={() => decrementCartItem(id)}
+                    onClick={decrement}
                 >
                     &#10094;
                 </button>
@@ -30,7 +42,7 @@ const CheckoutItem = ({ cartItem, removeCartItem, addCartItem, decrementCartItem
                     &#10095;
                 </button>
             </div>
-            <span className={classes[`checkout-item__content`]}>{ price }</span>
+            <span className={classes[`checkout-item__content`]}>${ price * quantity }</span>
             <button
                 className={`${classes[`checkout-item__content`]} clear-button`}
                 aria-label="remove item"
