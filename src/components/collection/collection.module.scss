@@ -1,0 +1,16 @@
+.collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collection__title {
+    font-size: 3.8rem;
+}
+
+.collection__items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+}
