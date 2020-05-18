@@ -6,7 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import userReducer from './modules/user';
 import cartReducer from './modules/cart';
 import directoryReducer from './modules/directory';
-import collectionReducer from './modules/collection';
+import shopReducer from './modules/shop';
 
 const middleware = [logger];
 
@@ -22,7 +22,7 @@ const rootReducer = persistReducer(
         user: userReducer,
         cart: cartReducer,
         directory: directoryReducer,
-        collection: collectionReducer
+        shop: shopReducer
     })
 );
 
