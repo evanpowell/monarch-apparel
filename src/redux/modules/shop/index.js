@@ -1,9 +1,9 @@
 import reducer from './reducers';
 
-import * as collectionSelectors from './selectors';
+import * as shopSelectors from './selectors';
 
 export {
-    collectionSelectors
+    shopSelectors
 };
 
 export default reducer;
