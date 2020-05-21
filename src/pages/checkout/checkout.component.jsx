@@ -4,6 +4,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { cartSelectors } from '../../redux/modules/cart';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import StripeButton from '../../components/stripe-button/stripe-button.component';
 
 import classes from './checkout.module.scss';
 
@@ -34,6 +35,12 @@ const CheckoutPage = ({ cartItems, totalPrice }) => {
                 })
             }
             <div className={classes[`checkout-total`]} aria-label="checkout total price">${ totalPrice }</div>
+            <div className={classes[`warning`]}>
+                *Please use the following credit card number for test payments. Exp must be in the future. Any CVC is allowed.*
+                <br />
+                4242 4242 4242 4242
+            </div>
+            <StripeButton price={totalPrice} />
         </div>
     )
 };

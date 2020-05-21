@@ -1,3 +1,4 @@
+@import '../../styles/abstracts//variables';
 
 .checkout-page {
     min-width: 40rem;
@@ -32,4 +33,10 @@
     margin-top: 3rem;
     margin-left: auto;
     font-size: 3.6rem;
+}
+
+.warning {
+    color: $color-warning;
+    font-size: 1.8rem;
+    margin: 2rem 0;
 }
