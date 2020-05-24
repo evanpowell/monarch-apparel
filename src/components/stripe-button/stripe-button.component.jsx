@@ -3,9 +3,11 @@ import StripeCheckout from 'react-stripe-checkout';
 
 import imageUrl from '../../assets/logo.svg';
 
+const STRIPE_KEY = process.env;
+
 const StripeButton = ({ price }) => {
     const priceInCents = price * 100;
-    // const publishableKey = ;
+    const publishableKey = STRIPE_KEY;
 
     const onToken = (token) => {
         console.log(token);
@@ -22,8 +24,8 @@ const StripeButton = ({ price }) => {
             description={`Your total is ${price}`}
             amount={priceInCents}
             panelLabel="Pay Now"
-            token={onToken}
-            // stripeKey={publishableKey}
+            token={onToken} 
+            stripeKey={publishableKey}
         />
     )
 }
