@@ -8,7 +8,11 @@ import cartReducer from './modules/cart';
 import directoryReducer from './modules/directory';
 import shopReducer from './modules/shop';
 
-const middleware = [logger];
+const middleware = [];
+
+if (process.env.NODE_ENV === 'development') {
+    middleware.push(logger);
+}
 
 const persistConfig = {
     key: 'root',
