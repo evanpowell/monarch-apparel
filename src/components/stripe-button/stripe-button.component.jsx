@@ -3,11 +3,11 @@ import StripeCheckout from 'react-stripe-checkout';
 
 import imageUrl from '../../assets/logo.svg';
 
-const STRIPE_KEY = process.env;
+const { REACT_APP_STRIPE_KEY } = process.env;
 
 const StripeButton = ({ price }) => {
     const priceInCents = price * 100;
-    const publishableKey = STRIPE_KEY;
+    const publishableKey = REACT_APP_STRIPE_KEY;
 
     const onToken = (token) => {
         console.log(token);
